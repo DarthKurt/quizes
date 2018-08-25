@@ -1,4 +1,4 @@
-# Lecture
+# Badge
 
 ##### **Source**: https://codeforces.com
 

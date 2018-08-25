@@ -1,4 +1,4 @@
-# Lecture
+# Cinema Line
 
 ##### **Source**: https://codeforces.com
 

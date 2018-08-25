@@ -1,4 +1,4 @@
-# Lecture
+# Kefa and Company
 
 ##### **Source**: https://codeforces.com
 
