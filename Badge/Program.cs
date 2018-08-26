@@ -15,29 +15,23 @@ namespace Badge
         private static void Do()
         {
             Console.ReadLine();
-            ushort i = 1;
             var s = Console.ReadLine().Split(' ')
-                .Select(c => new StudentRedirect{
-                             From = i++,
-                             To = ushort.Parse(c)
-                            })
-                .ToDictionary(t => t.From, t => t.To);
+                .Select(c => uint.Parse(c) - 1).ToArray();
 
-            var sb = new StringBuilder();
+            var sb = new uint[s.Length];
 
-            for (ushort j = 1; j < s.Count + 1; j++)
+            for (var i = 0u; i < s.Length; i++)
             {
-                var res = CheckStudent(s, j);
-                sb.Append($"{res} ");
+                sb[i] = CheckStudent(s, i);
             }
 
-            Console.WriteLine(sb.ToString().TrimEnd());
+            Console.WriteLine(string.Join(" ", sb));
         }
 
-        private static ushort CheckStudent(IDictionary<ushort, ushort> mapping, ushort startStudent)
+        private static uint CheckStudent(uint[] mapping, uint startStudent)
         {
-            var students = new bool[mapping.Count + 1];
-            ushort i = startStudent;
+            var students = new bool[mapping.Length];
+            var i = startStudent;
 
             while(!students[i])
             {
@@ -45,12 +39,7 @@ namespace Badge
                 i = mapping[i];
             }
 
-            return i;
+            return i + 1;
         }
-    }
-
-    public struct StudentRedirect {
-        public ushort From;
-        public ushort To;
     }
 }
